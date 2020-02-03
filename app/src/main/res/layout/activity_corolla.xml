@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout">
+
+
+        <Button
+            android:id="@+id/back_button_corolla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"
+            android:background="@color/design_default_color_primary_dark"
+            android:text="Back"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/header_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/button_back"
+            app:srcCompat="@drawable/button_back" />
+
+        <RelativeLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_cover_image"
+            android:background="#ebca0707"
+            android:elevation="4dp"
+            android:paddingBottom="24dp">
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Corrolla Atlas LHR 136"
+                android:textColor="#fff"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_layout"
+            android:background="#add8e6"
+            android:elevation="4dp"
+            android:paddingBottom="420dp">
+
+            <TextView
+                android:id="@+id/listHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="20dp"
+                android:gravity="center_horizontal"
+                android:text="OBDII Status = Connected"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/Speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Speed = 100 km/h"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_below="@+id/listHeading"
+                android:paddingLeft="24dp"
+                android:background="#F0F8FF"
+                />
+            <TextView
+                android:id="@+id/RPM"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+
+               android:layout_height="wrap_content"
+                android:text="RPM = 3100"
+                android:textSize="20sp"
+                android:layout_below="@+id/Speed"
+                android:paddingLeft="24dp"
+                android:background="#F0F8FF"
+                />
+            <TextView
+                android:id="@+id/fuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FUEL = 82%"
+                android:textSize="20sp"
+                android:layout_below="@+id/RPM"
+                android:padding="10dp"
+
+                android:paddingLeft="24dp"
+                android:background="#F0F8FF"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
