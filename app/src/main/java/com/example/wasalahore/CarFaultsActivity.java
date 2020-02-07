@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,18 +43,18 @@ public class CarFaultsActivity extends AppCompatActivity {
         final CarFaultsAdapter adapter = new CarFaultsAdapter(CarFaultsActivity.this, dataClassList);
         recyclerView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("tbl_dtc_data");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("livedata");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild("dtc_id")) {
-                    String id = dataSnapshot.child("dtc_id").getValue().toString();
-                    String title = dataSnapshot.child("title").getValue().toString();
-                    String technical_description = dataSnapshot.child("technical_description").getValue().toString();
-                    String description = dataSnapshot.child("description").getValue().toString();
-                    String causes = dataSnapshot.child("causes_text").getValue().toString();
-                    String solutions = dataSnapshot.child("possible_solutions").getValue().toString();
-                    CarFaultsDataClass carFaultsDataClass = new CarFaultsDataClass(id, title, technical_description, description, causes, solutions);
+                if (dataSnapshot.hasChildren()) {
+                    Map<String, Object> data = (Map<String, Object>) dataSnapshot.getValue();
+//                    String title = dataSnapshot.child("title").getValue().toString();
+//                    String technical_description = dataSnapshot.child("technical_description").getValue().toString();
+//                    String description = dataSnapshot.child("description").getValue().toString();
+//                    String causes = dataSnapshot.child("causes_text").getValue().toString();
+//                    String solutions = dataSnapshot.child("possible_solutions").getValue().toString();
+                    CarFaultsDataClass carFaultsDataClass = new CarFaultsDataClass(data.get("speed").toString(), "title", "technical_description", "description", "causes", "solutions");
                     dataClassList.add(carFaultsDataClass);
                     adapter.notifyDataSetChanged();
                 } else {
