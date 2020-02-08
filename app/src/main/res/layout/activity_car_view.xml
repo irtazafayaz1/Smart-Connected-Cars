@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/circularImage_car"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:elevation="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_image"
+        app:civ_border="true"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_border_width="4dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="0" />
+
+    <TextView
+        android:layout_toRightOf="@id/circularImage_car"
+        android:id="@+id/carName"
+        android:text="Corolla VXR"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:layout_below="@id/carName"
+        android:layout_toRightOf="@id/circularImage_car"
+        android:id="@+id/registrationNo"
+        android:text="Registration No"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/circularImage_car"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp">
+
+               <TextView
+                   android:gravity="center_horizontal"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textSize="20dp"
+                   android:text="Live Data">
+
+               </TextView>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.github.capur16.digitspeedviewlib.DigitSpeedView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:disableBackgroundImage="true"
+                    app:speed="30"
+                    app:speedTextColor="@android:color/holo_blue_light"
+                    app:speedTextSize="35dp"
+                    app:unit="km/h"
+                    app:unitTextColor="@android:color/holo_blue_light"
+                    app:unitTextSize="5dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="25dp"
+                    android:text="Live Speed">
+
+                </TextView>
+
+
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.github.capur16.digitspeedviewlib.DigitSpeedView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:disableBackgroundImage="true"
+                    app:speed="30"
+                    app:speedTextColor="@android:color/holo_blue_light"
+                    app:speedTextSize="35dp"
+                    app:unit="rpm"
+                    app:unitTextColor="@android:color/holo_blue_light"
+                    app:unitTextSize="5dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="25dp"
+                    android:text="Live RPM">
+
+                </TextView>
+
+
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.github.capur16.digitspeedviewlib.DigitSpeedView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:disableBackgroundImage="true"
+                    app:speed="30"
+                    app:speedTextColor="@android:color/holo_blue_light"
+                    app:speedTextSize="35dp"
+                    app:unit="litres"
+                    app:unitTextColor="@android:color/holo_blue_light"
+                    app:unitTextSize="5dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textSize="25dp"
+                    android:text="Live Fuel">
+
+                </TextView>
+
+
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
+
+    </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
