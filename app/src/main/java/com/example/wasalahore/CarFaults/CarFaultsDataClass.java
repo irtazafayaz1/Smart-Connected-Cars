@@ -4,14 +4,14 @@ import java.util.List;
 
 public class CarFaultsDataClass {
 
-    String id;
+    long id;
     String title;
     String technicalDescription;
     String description;
     String causes;
     String solutions;
 
-    public CarFaultsDataClass(String id, String title, String technicalDescription, String description, String causes, String solutions) {
+    public CarFaultsDataClass(long id, String title, String technicalDescription, String description, String causes, String solutions) {
         this.id = id;
         this.title = title;
         this.technicalDescription = technicalDescription;
@@ -20,12 +20,15 @@ public class CarFaultsDataClass {
         this.solutions = solutions;
     }
 
+    public CarFaultsDataClass() {
+    }
 
-    public String getId() {
+
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

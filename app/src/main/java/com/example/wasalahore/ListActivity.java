@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.wasalahore.RainGauges.RainGaugeHome;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -23,17 +22,14 @@ public class ListActivity extends AppCompatActivity {
         give_review = findViewById(R.id.give_review);
 
 
-
-
-
         give_review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ListActivity.this, RainGaugeHome.class);
+                Intent intent = new Intent(ListActivity.this, ReviewActivity.class);
                 startActivity(intent);
             }
         });
-        
+
         profile_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

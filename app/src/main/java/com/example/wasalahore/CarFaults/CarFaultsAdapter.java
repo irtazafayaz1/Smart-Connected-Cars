@@ -34,7 +34,7 @@ public class CarFaultsAdapter extends RecyclerView.Adapter<CarFaultsAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         CarFaultsDataClass carFaultsDataClass = dataClassList.get(position);
-        holder.id.setText(carFaultsDataClass.getId());
+        holder.id.setText(Long.toString(carFaultsDataClass.getId()));
         holder.title.setText(carFaultsDataClass.getTitle());
         holder.technicalDescription.setText(carFaultsDataClass.getTechnicalDescription());
         holder.description.setText(carFaultsDataClass.getDescription());

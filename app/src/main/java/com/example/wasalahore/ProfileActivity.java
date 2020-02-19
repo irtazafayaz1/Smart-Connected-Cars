@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.wasalahore.RainGauges.RainGaugeHome;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         giveReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, RainGaugeHome.class);
+                Intent intent = new Intent(ProfileActivity.this, ReviewActivity.class);
                 startActivity(intent);
             }
         });
