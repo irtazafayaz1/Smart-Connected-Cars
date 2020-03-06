@@ -57,6 +57,9 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:4.0.1'
 
 
+    implementation 'com.github.capur16:digitspeedviewlib:1.0.3'
+
+
 
 
 //
