@@ -16,12 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddNewCarActivity"></activity>
+        <activity
+            android:name=".RegisterOwner"
+            android:label="@string/title_activity_register_owner"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ReviewActivity" />
         <activity android:name=".PriusActivity" />
         <activity android:name=".CorollaActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ReviewByPartsActivity" />
         <activity android:name=".CarFaultsActivity" />
+        <activity android:name=".CarViewActivity" />
         <activity android:name=".DisposalsForTubeWells.WellsHomeActivity" />
         <activity android:name=".DisposalsForPumps.PumpsHomeActivity" />
         <activity android:name=".RainGauges.RainGaugeHome" />

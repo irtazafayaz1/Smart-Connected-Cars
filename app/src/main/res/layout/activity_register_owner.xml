@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FDFDFE"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".RegisterOwner">
 
 
     <ImageView
@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        tools:src="@drawable/cars"
+        android:src="@drawable/cars"
+
         />
 
     <!--<TextView-->
@@ -38,11 +39,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:text="Username"
+            android:text="Name"
             android:textColor="@color/colorPrimary" />
 
         <EditText
-            android:id="@+id/username_login"
+            android:id="@+id/name_"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
@@ -51,7 +52,7 @@
             android:background="@drawable/edit_text_background"
             android:drawableStart="@drawable/ic_username"
             android:drawablePadding="15dp"
-            android:hint="Enter Username here"
+            android:hint="Enter Your Name Here"
             android:inputType="text"
             android:paddingStart="10dp"
             android:textColorHint="@color/colorPrimary"
@@ -64,11 +65,11 @@
             android:layout_marginStart="25dp"
 
             android:layout_marginTop="10dp"
-            android:text="Password"
+            android:text="CNIC"
             android:textColor="@color/colorPrimary" />
 
         <EditText
-            android:id="@+id/password_login"
+            android:id="@+id/cnic_"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
@@ -77,17 +78,41 @@
             android:background="@drawable/edit_text_background"
             android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="15dp"
-            android:hint="Enter Password here"
-            android:inputType="textPassword"
+            android:hint="Enter Your CNIC here"
+            android:inputType="number"
             android:paddingStart="10dp"
             android:textColorHint="@color/colorPrimary"
             android:textSize="20sp" />
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:text="Phone"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edit_text_background"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="15dp"
+            android:hint="Enter Your Phone"
+            android:inputType="phone"
+            android:paddingStart="10dp"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="20sp" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/register_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_linear"
@@ -95,22 +120,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_background"
-        android:text="Login"
+        android:text="Register"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="New User? Click here to request!"
-        android:textSize="18sp"
-        android:textStyle="italic" />
 
 
 </RelativeLayout>

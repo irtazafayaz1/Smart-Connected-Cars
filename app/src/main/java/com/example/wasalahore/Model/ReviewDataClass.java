@@ -5,10 +5,20 @@ public class ReviewDataClass {
     private String Company;
     private String Model;
     private String lisence;
+
+    public String getAvg_rating() {
+        return avg_rating;
+    }
+
+    public void setAvg_rating(String avg_rating) {
+        this.avg_rating = avg_rating;
+    }
+
+    private String avg_rating;
     private String body_shape, tyres, shawks, sound_system, room_space, seating_comfort, ac, steering, brakes, gear, wind_screen, head_lights, backlights, doors, horn, battery, design, generator,
             compressor, cooling_system, plugs, seatbelt, gear_box, fuel_average, pick;
 
-    public ReviewDataClass(String company, String model, String lisence, String body_shape, String tyres, String shawks, String sound_system, String room_space, String seating_comfort, String ac, String steering, String brakes, String gear, String wind_screen, String head_lights, String backlights, String doors, String horn, String battery, String design, String generator, String compressor, String cooling_system, String plugs, String seatbelt, String gear_box, String fuel_average, String pick) {
+    public ReviewDataClass(String company, String model, String lisence, String body_shape, String tyres, String shawks, String sound_system, String room_space, String seating_comfort, String ac, String steering, String brakes, String gear, String wind_screen, String head_lights, String backlights, String doors, String horn, String battery, String design, String generator, String compressor, String cooling_system, String plugs, String seatbelt, String gear_box, String fuel_average, String pick,String avg_rating) {
         Company = company;
         Model = model;
         this.lisence = lisence;
@@ -37,6 +47,7 @@ public class ReviewDataClass {
         this.gear_box = gear_box;
         this.fuel_average = fuel_average;
         this.pick = pick;
+        this.avg_rating=avg_rating;
     }
 
     public ReviewDataClass() {

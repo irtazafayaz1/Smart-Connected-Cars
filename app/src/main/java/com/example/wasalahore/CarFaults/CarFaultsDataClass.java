@@ -4,15 +4,23 @@ import java.util.List;
 
 public class CarFaultsDataClass {
 
-    long id;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    String id;
     String title;
     String technicalDescription;
     String description;
     String causes;
     String solutions;
 
-    public CarFaultsDataClass(long id, String title, String technicalDescription, String description, String causes, String solutions) {
-        this.id = id;
+    public CarFaultsDataClass( String title, String technicalDescription, String description, String causes, String solutions) {
+
         this.title = title;
         this.technicalDescription = technicalDescription;
         this.description = description;
@@ -24,13 +32,6 @@ public class CarFaultsDataClass {
     }
 
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

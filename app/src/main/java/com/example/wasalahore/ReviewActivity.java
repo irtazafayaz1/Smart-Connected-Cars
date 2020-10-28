@@ -1,33 +1,62 @@
 package com.example.wasalahore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.wasalahore.Model.CustomAdapter;
+import com.example.wasalahore.Model.CustomItem;
 import com.example.wasalahore.Model.ReviewDataClass;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ReviewActivity extends AppCompatActivity {
+public class ReviewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+
+    Spinner spinner;
+    int width = 150;
+    ArrayList<CustomItem> customList;
 
     DatabaseReference databaseReference;
-    String Company = "Toyota";
-    String Model = "Civic '19";
-    String lisence = "len4245";
+    String Company;
+    String Model;
+    String lisence;
     RatingBar body_shape, tyres, shawks, sound_system, room_space, seating_comfort, ac, steering, brakes, gear, wind_screen, head_lights, backlights, doors, horn, battery, design, generator,
             compressor, cooling_system, plugs, seatbelt, gear_box, fuel_average, pick;
     Button submit_review;
-
+    float avg_rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
+        spinner = findViewById(R.id.select_rating);
+        customList = getCustomList();
+
+
+        Intent intent = getIntent();
+        lisence = intent.getStringExtra("lisenceno");
+        Model = intent.getStringExtra("modelname");
+        Company = intent.getStringExtra("companyname");
+
+        CustomAdapter adapter = new CustomAdapter(this, customList);
+        if (spinner != null) {
+            spinner.setAdapter(adapter);
+            spinner.setOnItemSelectedListener(this);
+        }
+
+
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("review");
 
@@ -111,9 +140,12 @@ public class ReviewActivity extends AppCompatActivity {
                     Toast.makeText(ReviewActivity.this, "Select Fuel Average's rating please.", Toast.LENGTH_SHORT).show();
                 else if (pick.getRating() == 0.0)
                     Toast.makeText(ReviewActivity.this, "Select Pick's rating please.", Toast.LENGTH_SHORT).show();
+
                 else {
-                    ReviewDataClass reviewDataClass = new ReviewDataClass(Company, Model, lisence, Float.toString(body_shape.getRating()), Float.toString(tyres.getRating()), Float.toString(shawks.getRating()), Float.toString(sound_system.getRating()), Float.toString(room_space.getRating()), Float.toString(seating_comfort.getRating()), Float.toString(ac.getRating()), Float.toString(steering.getRating()), Float.toString(brakes.getRating()), Float.toString(gear.getRating()), Float.toString(wind_screen.getRating()), Float.toString(head_lights.getRating()), Float.toString(backlights.getRating()), Float.toString(doors.getRating()), Float.toString(horn.getRating()), Float.toString(battery.getRating()), Float.toString(design.getRating()), Float.toString(generator.getRating()), Float.toString(compressor.getRating()), Float.toString(cooling_system.getRating()), Float.toString(plugs.getRating()), Float.toString(seatbelt.getRating()), Float.toString(gear_box.getRating()), Float.toString(fuel_average.getRating()), Float.toString(pick.getRating()));
-                    if (databaseReference.push().setValue(reviewDataClass).isSuccessful()) {
+                    avg_rating = body_shape.getRating() + tyres.getRating() + shawks.getRating() + sound_system.getRating() + room_space.getRating() + seating_comfort.getRating() + ac.getRating() + steering.getRating() + brakes.getRating() + gear.getRating() + wind_screen.getRating() + head_lights.getRating() + backlights.getRating() + doors.getRating() + horn.getRating() + battery.getRating() + design.getRating() + generator.getRating() + compressor.getRating() + cooling_system.getRating() + plugs.getRating() + seatbelt.getRating() + gear_box.getRating() + fuel_average.getRating() + pick.getRating();
+                    avg_rating = avg_rating / 25;
+                    ReviewDataClass reviewDataClass = new ReviewDataClass(Company, Model, lisence, Float.toString(body_shape.getRating()), Float.toString(tyres.getRating()), Float.toString(shawks.getRating()), Float.toString(sound_system.getRating()), Float.toString(room_space.getRating()), Float.toString(seating_comfort.getRating()), Float.toString(ac.getRating()), Float.toString(steering.getRating()), Float.toString(brakes.getRating()), Float.toString(gear.getRating()), Float.toString(wind_screen.getRating()), Float.toString(head_lights.getRating()), Float.toString(backlights.getRating()), Float.toString(doors.getRating()), Float.toString(horn.getRating()), Float.toString(battery.getRating()), Float.toString(design.getRating()), Float.toString(generator.getRating()), Float.toString(compressor.getRating()), Float.toString(cooling_system.getRating()), Float.toString(plugs.getRating()), Float.toString(seatbelt.getRating()), Float.toString(gear_box.getRating()), Float.toString(fuel_average.getRating()), Float.toString(pick.getRating()), Float.toString(avg_rating));
+                    if (databaseReference.child(Company).child(Model).child(lisence).setValue(reviewDataClass).isSuccessful()) {
                         Toast.makeText(ReviewActivity.this, "Review added succesfully", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(ReviewActivity.this, "Review added succesfully", Toast.LENGTH_SHORT).show();
@@ -122,6 +154,42 @@ public class ReviewActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+
+    private ArrayList<CustomItem> getCustomList() {
+        customList = new ArrayList<>();
+        customList.add(new CustomItem(5,"Five Stars", R.drawable.ic_grade_black_24dp));
+        customList.add(new CustomItem(4,"Four Stars", R.drawable.ic_grade_black_24dp));
+        customList.add(new CustomItem(3,"Three Stars", R.drawable.ic_grade_black_24dp));
+        customList.add(new CustomItem(2,"Two Stars", R.drawable.ic_grade_black_24dp));
+        customList.add(new CustomItem(1,"One Star", R.drawable.ic_grade_black_24dp));
+        return customList;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        try {
+            LinearLayout linearLayout = findViewById(R.id.customSpinnerItemLayout);
+            width = linearLayout.getWidth();
+        } catch (Exception e) {
+        }
+        spinner.setDropDownWidth(width);
+        CustomItem item = (CustomItem) adapterView.getSelectedItem();
+        Toast.makeText(this, item.getSpinnerItemName(), Toast.LENGTH_SHORT).show();
+        String rating=Integer.toString(item.getId());
+        ReviewDataClass reviewDataClass = new ReviewDataClass(Company, Model, lisence,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating,rating);
+        if (databaseReference.child(Company).child(Model).child(lisence).setValue(reviewDataClass).isSuccessful()) {
+            Toast.makeText(ReviewActivity.this, "Review added succesfully", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ReviewActivity.this, "Review added succesfully", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 }

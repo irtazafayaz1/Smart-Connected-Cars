@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CarFaultsActivity extends AppCompatActivity {
-    String lisence_no = "len4245";
+    String lisence_no;
     Button button;
     TextView textView;
     DatabaseReference databaseReference, databaseReference1;
@@ -44,6 +44,9 @@ public class CarFaultsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(CarFaultsActivity.this));
         adapter = new CarFaultsAdapter(CarFaultsActivity.this, dataClassList);
         recyclerView.setAdapter(adapter);
+
+        Intent intent = getIntent();
+        lisence_no = intent.getStringExtra("lisenceno");
 
         databaseReference = FirebaseDatabase.getInstance().getReference("car_faults").child(lisence_no);
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -66,32 +69,6 @@ public class CarFaultsActivity extends AppCompatActivity {
         });
 
 
-//        databaseReferenceddListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.hasChildren()) {
-//                    Map<String, Object> data = (Map<String, Object>) dataSnapshot.getValue();
-////                    String title = dataSnapshot.child("title").getValue().toString();
-////                    String technical_description = dataSnapshot.child("technical_description").getValue().toString();
-////                    String description = dataSnapshot.child("description").getValue().toString();
-////                    String causes = dataSnapshot.child("causes_text").getValue().toString();
-////                    String solutions = dataSnapshot.child("possible_solutions").getValue().toString();
-//                    CarFaultsDataClass carFaultsDataClass = new CarFaultsDataClass(data.get("speed").toString(), "title", "technical_description", "description", "causes", "solutions");
-//                    dataClassList.add(carFaultsDataClass);
-//                    adapter.notifyDataSetChanged();
-//                } else {
-//                    Toast.makeText(CarFaultsActivity.this, "nai hua", Toast.LENGTH_SHORT).show();
-//                }
-//
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,15 +84,16 @@ public class CarFaultsActivity extends AppCompatActivity {
         int len = car_faults_ids.size();
         dataClassList.clear();
         for (int i = 0; i < len; i++) {
-            Query query = databaseReference1.orderByChild("dtc_id").equalTo(car_faults_ids.get(i));
-            query.addValueEventListener(new ValueEventListener() {
+//            Query query = databaseReference1.orderByChild("dtc_id").equalTo(car_faults_ids.get(i));
+            databaseReference1.child(car_faults_ids.get(i)).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChildren()) {
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                            dataClassList.add(dataSnapshot1.getValue(CarFaultsDataClass.class));
+//                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+//                            Log.e( "onDataChange: ",dataSnapshot1.getValue(CarFaultsDataClass.class).getTitle() );
+                            dataClassList.add(dataSnapshot.getValue(CarFaultsDataClass.class));
                             Log.e("called", "onDataChange: ");
-                        }
+//                        }
                         Log.e("1", dataClassList.toString());
                         adapter.notifyDataSetChanged();
                     }

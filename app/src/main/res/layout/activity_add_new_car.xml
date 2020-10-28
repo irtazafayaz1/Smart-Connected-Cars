@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:foreground="@color/colorTransparentBlack"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_background" />
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="-75dp"
+            android:elevation="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_image"
+            app:civ_border="true"
+            app:civ_border_color="@color/colorWhite"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="0" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="visible"
+            app:cardCornerRadius="2dp"
+
+            app:cardElevation="2dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:elevation="10dp"
+                        android:text="Irtaza Fayaz"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                        android:textColor="@color/colorMoreGreen" />
+
+                    <LinearLayout
+                        android:id="@+id/login_linear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/login_img"
+                        android:layout_marginTop="40dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:text="Car Number"
+                            android:textColor="@color/colorPrimary" />
+
+                        <EditText
+                            android:id="@+id/car_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/edit_text_background"
+                            android:drawableStart="@drawable/ic_username"
+                            android:drawablePadding="15dp"
+                            android:hint="Enter Lisence Number"
+                            android:inputType="text"
+                            android:paddingStart="10dp"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:text="Company Name"
+                            android:textColor="@color/colorPrimary" />
+
+                        <EditText
+                            android:id="@+id/company_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/edit_text_background"
+                            android:drawableStart="@drawable/ic_username"
+                            android:drawablePadding="15dp"
+                            android:hint="Enter Company Name"
+                            android:inputType="text"
+                            android:paddingStart="10dp"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:text="Model Name"
+                            android:textColor="@color/colorPrimary" />
+
+                        <EditText
+                            android:id="@+id/model_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/edit_text_background"
+                            android:drawableStart="@drawable/ic_username"
+                            android:drawablePadding="15dp"
+                            android:hint="Enter Model Name"
+                            android:inputType="text"
+                            android:paddingStart="10dp"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:text="Model No. "
+                            android:textColor="@color/colorPrimary" />
+
+                        <EditText
+                            android:id="@+id/model_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/edit_text_background"
+                            android:drawableStart="@drawable/ic_username"
+                            android:drawablePadding="15dp"
+                            android:hint="Enter Model Number"
+                            android:inputType="text"
+                            android:paddingStart="10dp"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textSize="20dp" />
+
+                        <Button
+                            android:id="@+id/request"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/button_background"
+                            android:text="Request"
+                            android:padding="10dp"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </ScrollView>
+
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>

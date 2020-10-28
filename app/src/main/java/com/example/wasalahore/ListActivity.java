@@ -37,6 +37,7 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         car_faults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
